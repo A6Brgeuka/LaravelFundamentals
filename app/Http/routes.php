@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::get('contact', 'WelcomeController@contact');
+
+Route::get('home', 'WelcomeController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
