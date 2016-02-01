@@ -11,22 +11,17 @@ class PagesController extends Controller
 {
     public  function about()
     {
-        $name = 'Naranov <span style="color : red">Arshan</span>';
-        //return view('pages.about')->with('name', $name);
-        /*return view('pages.about')->with([
-            'first' => 'Naranov',
-            'last' => 'Arshan'
-        ]);*/
+        $people = [
+            'Person1', 'Person2', 'Person3'
+        ];
 
-        /*$data = [];
-        $data['first'] = 'Naranov';
-        $data['last'] = 'Arshan';
-        return view('pages.about', $data);*/
 
-        $first = 'Fox';
-        $last = 'Mulder';
+        return view('pages.about', compact('people'));
+    }
 
-        return view('pages.about', compact('first', 'last'));
+    public function contact()
+    {
+        return view('pages.contact');
     }
 }
 
