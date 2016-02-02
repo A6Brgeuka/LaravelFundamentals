@@ -35,6 +35,7 @@ class ArticlesController extends Controller
     public function store(ArticleRequest $request)
     {
 
+
         Article::create($request->all()); //http/request
 
         return redirect('articles');
