@@ -3,6 +3,7 @@
 
 @section('content')
     <h1>Articles</h1>
+    <a href="/articles/create">Create Article</a>
 
     <hr>
 

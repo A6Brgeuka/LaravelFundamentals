@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Request;
+//use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
@@ -31,14 +32,40 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
-    public function store()
+    public function store(ArticleRequest $request)
     {
-        Article::create(Request::all());
 
-        //$article = new Article;
-        //$article->title = $input['title'];
-
+        Article::create($request->all()); //http/request
 
         return redirect('articles');
     }
+
+    public  function  edit($id)
+    {
+        $article = Article::find($id);
+
+
+        return view('articles.edit', compact('article'));
+    }
+    public function  update($id, ArticleRequest $request)
+    {
+        $article = Article::find($id);
+
+        $article->update($request->all());
+
+        return redirect('articles');
+    }
+
+
+    /*public function store(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|min:3',
+            'body' => 'required',
+            'published_at' => 'required|date'
+        ]);
+        Article::create($request->all());
+
+        return redirect('articles');
+    }*/
 }
