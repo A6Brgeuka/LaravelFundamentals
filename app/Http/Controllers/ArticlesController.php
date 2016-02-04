@@ -14,6 +14,7 @@ class ArticlesController extends Controller
 {
     public function  index()
     {
+
         $articles = Article::latest('published_at')->get();
 
         return view('articles.index', compact('articles'));
@@ -34,9 +35,9 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
+        $article = new Article($request->all());
 
-
-        Article::create($request->all()); //http/request
+        \Auth::user()->articles()->save($article);
 
         return redirect('articles');
     }

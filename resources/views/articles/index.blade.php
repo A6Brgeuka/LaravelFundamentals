@@ -1,5 +1,6 @@
 @extends('app')
 
+<div class="container">
 
 @section('content')
     <h1>Articles</h1>
@@ -17,3 +18,4 @@
         </article>
     @endforeach
 @stop
+</div>
